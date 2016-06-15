@@ -3,32 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>MyTodoApp</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
 <h1>Hello TODO App!</h1>
 <div>
     <h4>Input 1</h4>
     <form action="#" >
-        <input type="text" id="input1" onkeypress="inputOne(event)" value="">
+        <input type="text" onkeypress="inputOne(event)" value="">
     </form>
+
     <h4>Input 2</h4>
     <div>
-        <input type="text" id="input2" onkeyup="inputTwo()">
+        <input type="text" onkeyup="inputTwo(event)">
     </div>
     <div id="output2"></div>
+
     <h4>Input 3</h4>
     <div>
         <input type="text" id="input3" onkeypress="inputThree(event)" value=""><br>
-        <ul id="output3">
-        </ul>
+        <ul id="output3"></ul>
     </div>
+
     <h4>Input 4</h4>
     <div>
         <input type="text" id="input4"onkeypress="inputFour(event)" value=""><br>
-        <ul id="output4">
-        </ul>
+        <ul id="output4"></ul>
     </div>
+
 </div>
     <script type='text/javascript' src="src/scripts/tutorialApp.js"></script>
 </body>

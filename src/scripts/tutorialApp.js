@@ -3,55 +3,45 @@
  */
 function inputOne(e) {
     // if enter pressed and not empty input
-     if(e.keyCode === 13 && /\S/.test(document.getElementById("input1").value)){
-         alert(document.getElementById("input1").value);
-   
-         document.getElementById("input1").value = "";
+     if(e.keyCode === 13 && /\S/.test(e.currentTarget.value)){
+         alert(e.currentTarget.value);
+         e.currentTarget.value = "";
     }
     return false;
 }
-function inputTwo() {
-    var input2 = document.getElementById("input2").value;
-    document.getElementById("output2").innerHTML = input2;
+function inputTwo(e) {
+    document.getElementById("output2").innerHTML = e.currentTarget.value;
 }
 function inputThree(e) {
-    var input3 = document.getElementById("input3").value;
     //if enter pressed and not empty input
-    if(e.keyCode === 13 && /\S/.test(input3)){
+    if(e.keyCode === 13 && /\S/.test(e.currentTarget.value)){
         //create bullet point with input
         var list = document.createElement("li");
-        var node = document.createTextNode(input3);
+        var node = document.createTextNode(e.currentTarget.value);
         list.appendChild(node);
         
-        // add bullet point to output div
-        var element = document.getElementById("output3");
-        element.appendChild(list);
-        
-        document.getElementById("input3").value = "";
+        // add bullet point to output divand clear input
+        document.getElementById("output3").appendChild(list);
+        e.currentTarget.value = "";
     }
 }
 function inputFour(e) {
-    var input4 = document.getElementById("input4").value;
     //if enter pressed and not empty input
-    if(e.keyCode === 13 && /\S/.test(input4)){
+    if(e.keyCode === 13 && /\S/.test(e.currentTarget.value)){
         //create bullet point with input
         var list = document.createElement("li");
-        var node = document.createTextNode(input4);
+        var node = document.createTextNode(e.currentTarget.value);
         list.appendChild(node);
-        
+
         //create x icon which removes parent onclick and add to bullet point
         var delOpt = document.createElement("i");
-        delOpt.onclick = function() {this.parentNode.parentNode.removeChild(list);}
-        delOpt.setAttribute("class","material-icons");
-        delOpt.setAttribute("style","vertical-align: bottom; font-size: 100%;");
-        var x = document.createTextNode("close");
+        delOpt.onclick = function() {this.parentNode.parentNode.removeChild(list);};
+        var x = document.createTextNode("  X  ");
         delOpt.appendChild(x);
         list.appendChild(delOpt);
         
-        // add bullet point with x icon to output div
-        var element = document.getElementById("output4");
-        element.appendChild(list);
-
-        document.getElementById("input4").value = "";
+        // add bullet point with x icon to output div and clear input
+        document.getElementById("output4").appendChild(list);
+        e.currentTarget.value = "";
     }
 }
