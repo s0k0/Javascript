@@ -7,7 +7,7 @@
 <body>
 <h1>Hello TODO App!</h1>
 <div>
-    <h4>Input 1</h4>
+   <!-- <h4>Input 1</h4>
     <form action="#" >
         <input type="text" onkeypress="inputOne(event)" value="">
     </form>
@@ -22,12 +22,18 @@
     <div>
         <input type="text" id="input3" onkeypress="inputThree(event)" value=""><br>
         <ul id="output3"></ul>
-    </div>
+    </div>-->
 
-    <h4>Input 4</h4>
+    <h4>Input Todo List</h4>
     <div>
-        <input type="text" id="input4"onkeypress="inputFour(event)" value=""><br>
-        <ul id="output4"></ul>
+        <input type="text" id="inputTodo"onkeypress="setInputTodo(event)" value="">
+        Sort Method: <select id="selectSortingMethod">
+            <option value="underscore" default>underscore</option>
+            <option value="es6">ES6</option>
+        </select>
+        <button onclick="sortTodoList('date')">Time</button>
+        <button onclick="sortTodoList('author')">Author</button>
+        <ul id="outputTodo"></ul>
     </div>
 
 </div>
