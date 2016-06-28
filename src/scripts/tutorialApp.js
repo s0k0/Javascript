@@ -45,7 +45,7 @@ function sortTodoList (sortKey) {
 
 function sortTodoListWithUS(sortKey) {
     var sortedTodoListWithUS =_.sortBy(TodoList,sortKey);
-    console.log('sorted it with underscore!',sortedTodoListWithUS);
+    console.log('sorted by',sortKey,'with underscore!');
     return sortedTodoListWithUS;
 }
 
@@ -60,9 +60,13 @@ function sortTodoListWithES6(sortKey) {
                 var x = a.date;
                 var y = b.date;
             }
+            if(sortKey === "name"){
+                var x = a.name;
+                var y = b.name;
+            }
             return x < y ? -1 : x > y ? 1 : 0;
     });
-    console.log('sorted it with es6!',sortedTodoListWithES);
+    console.log('sorted by', sortKey,'with es6!');
     return sortedTodoListWithES;
 }
 
@@ -75,9 +79,9 @@ function deleteInputTodo(value){
 function setInputTodo(e) {
     if(e.keyCode === 13 && /\S/.test(e.currentTarget.value)) {
         var data = {
-            label: e.currentTarget.value,
-            date: new Date(),
-            author: getAuthor()
+            name: e.currentTarget.value,
+            author: getAuthor(),
+            date: new Date()
         };
         TodoList.push(data);
         printInputTodo(TodoList);
@@ -93,7 +97,7 @@ function printInputTodo(TodoList) {
     //create bullet point with input
     _.each(TodoList, function (data) {
         var list = document.createElement("li");
-        var node = document.createTextNode(data.label +" | " + data.date.toLocaleTimeString()+ " | " + data.author);
+        var node = document.createTextNode(data.name +" | "  + data.author + " | " + data.date.toLocaleTimeString());
         list.appendChild(node);
 
         //create x icon which removes parent onclick and add to bullet point
