@@ -43,7 +43,7 @@ function sortTodoList (sortKey) {
     printInputTodo(sortedList);
 }
 
-function sortTodoListWithUS(sortKey) {
+function sortTodoListWithUS(TodoList,sortKey) {
     var sortedTodoListWithUS =_.sortBy(TodoList,sortKey);
     console.log('sorted by',sortKey,'with underscore!');
     return sortedTodoListWithUS;
